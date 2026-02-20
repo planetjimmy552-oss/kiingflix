@@ -33,3 +33,21 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 });
+
+// --- SEARCH FILTER FUNCTION ---
+function filterMovies() {
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  const movieItems = document.querySelectorAll('.movie-list-item');
+
+  movieItems.forEach(item => {
+    // Get the title text from the specific movie card
+    const title = item.querySelector('.movie-list-item-title').innerText.toLowerCase();
+    
+    // If the title includes the letters typed, show it. Otherwise, hide it!
+    if (title.includes(searchTerm)) {
+      item.style.display = 'block'; 
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
